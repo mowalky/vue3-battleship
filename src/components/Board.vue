@@ -8,18 +8,32 @@ function numtoletter(num: number): string {
 
 <template>
   <div>
-    <div
-      v-for="row in boardSize"
-      key="row"
-      style="display: flex; background-color: pink"
-    >
-      {{ numtoletter(row) }}
+    <div style="display: flex; margin-left: 50px">
+      <div
+        v-for="header in boardSize"
+        style="flex: 1; width: 50px; height: 50px"
+      >
+        {{ header }}
+      </div>
+    </div>
+    <div v-for="row in boardSize" key="row" style="display: flex">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+        "
+      >
+        {{ numtoletter(row) }}
+      </div>
       <div
         v-for="col in boardSize"
         key="col"
         style="flex: 1; width: 50px; height: 50px; border: 1px solid #ccc"
       >
-        {{ col }}
+        {{ numtoletter(row) + col }}
       </div>
     </div>
   </div>
